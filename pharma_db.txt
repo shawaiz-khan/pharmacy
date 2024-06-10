@@ -1,0 +1,110 @@
+1. Patients
+   - patient_id (Primary Key)
+   - first_name
+   - last_name
+   - date_of_birth
+   - gender
+   - address
+   - phone_number
+   - email
+   - medical_history
+
+2. Doctors
+   - doctor_id (Primary Key)
+   - first_name
+   - last_name
+   - specialization
+   - phone_number
+   - email
+   - clinic_address
+
+3. Prescriptions
+   - prescription_id (Primary Key)
+   - patient_id (Foreign Key referencing Patients)
+   - doctor_id (Foreign Key referencing Doctors)
+   - prescription_date
+   - total_cost
+
+4. Prescription_Details
+   - prescription_detail_id (Primary Key)
+   - prescription_id (Foreign Key referencing Prescriptions)
+   - medicine_id (Foreign Key referencing Medicines)
+   - dosage
+   - quantity
+   - instructions
+
+5. Medicines
+   - medicine_id (Primary Key)
+   - name
+   - brand
+   - description
+   - category
+   - price
+   - quantity_in_stock
+   - expiry_date
+
+6. Suppliers
+   - supplier_id (Primary Key)
+   - name
+   - contact_person
+   - address
+   - phone_number
+   - email
+
+7. Orders
+   - order_id (Primary Key)
+   - supplier_id (Foreign Key referencing Suppliers)
+   - order_date
+   - total_cost
+   - status
+
+8. Order_Details
+   - order_detail_id (Primary Key)
+   - order_id (Foreign Key referencing Orders)
+   - medicine_id (Foreign Key referencing Medicines)
+   - quantity
+   - cost
+
+9. Staff
+   - staff_id (Primary Key)
+   - first_name
+   - last_name
+   - position
+   - phone_number
+   - email
+   - address
+   - salary
+
+10. Sales
+    - sale_id (Primary Key)
+    - patient_id (Foreign Key referencing Patients)
+    - staff_id (Foreign Key referencing Staff)
+    - sale_date
+    - total_cost
+
+11. Sale_Details
+    - sale_detail_id (Primary Key)
+    - sale_id (Foreign Key referencing Sales)
+    - medicine_id (Foreign Key referencing Medicines)
+    - quantity
+    - price
+    - discount
+    - total
+
+12. Inventory
+    - inventory_id (Primary Key)
+    - medicine_id (Foreign Key referencing Medicines)
+    - quantity
+    - last_updated
+
+13. Payments
+    - payment_id (Primary Key)
+    - sale_id (Foreign Key referencing Sales)
+    - payment_date
+    - amount
+    - payment_method
+
+14. Categories
+    - category_id (Primary Key)
+    - category_name
+    - description
