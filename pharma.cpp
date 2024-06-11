@@ -1,12 +1,16 @@
 #include <iostream>
-#include <mysql/jdbc.h>
+#include "C:/MySQL Connector C++ 8.4/include/mysql/jdbc.h"
 
 using namespace std;
 using namespace sql;
 
 int main() {
-    Connection *con = get_driver_instance()->connect("tcp://localhost:3306", "user", "password");
-    cout << "Connected to MySQL database successfully!" << endl;
+    sql::mysql::MySQL_Driver *driver;
+    sql::Connection *con;
+
+    driver = sql::mysql::get_mysql_driver_instance();
+    con = driver->connect("tcp://127.0.0.1:3306", "user", "password");
+
     delete con;
     return 0;
 }
